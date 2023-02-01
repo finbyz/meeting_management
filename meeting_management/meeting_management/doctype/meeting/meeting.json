@@ -1,0 +1,407 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2022-09-27 17:26:38.026501",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "lead",
+  "party_type",
+  "party",
+  "scheduled_time",
+  "organization",
+  "meeting_from",
+  "meeting_to",
+  "column_break",
+  "posting_date",
+  "meeting_arranged_by",
+  "salutation",
+  "contact_person",
+  "contact",
+  "mobile_no",
+  "email_id",
+  "address",
+  "address_display",
+  "company_details",
+  "turnover",
+  "employees",
+  "column_break_17",
+  "industry",
+  "business_specifics",
+  "participants",
+  "meeting_company_representative",
+  "meeting_party_representative",
+  "meeting_discussion",
+  "cc_to",
+  "discussion",
+  "actionable",
+  "actionables",
+  "sec_brk1",
+  "contact_by",
+  "send_mail",
+  "col_brk1",
+  "contact_date",
+  "expenses",
+  "expense_done_by",
+  "local_travel_expense",
+  "train_tickets",
+  "column_break_expense",
+  "flight_ticket",
+  "food_expense",
+  "lodging_cost",
+  "total_expense",
+  "customer",
+  "opportunity",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "default": "Meet-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "Meet-",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lead",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_standard_filter": 1,
+   "label": "Lead",
+   "options": "Lead"
+  },
+  {
+   "fieldname": "party_type",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Party Type",
+   "options": "\nLead\nCustomer\nSupplier"
+  },
+  {
+   "fieldname": "party",
+   "fieldtype": "Dynamic Link",
+   "label": "Party",
+   "options": "party_type"
+  },
+  {
+   "fieldname": "scheduled_time",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "Scheduled Time"
+  },
+  {
+   "fieldname": "organization",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Organization",
+   "read_only": 1
+  },
+  {
+   "fieldname": "meeting_from",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Meeting From",
+   "reqd": 1
+  },
+  {
+   "fieldname": "meeting_to",
+   "fieldtype": "Datetime",
+   "label": "Meeting To"
+  },
+  {
+   "fieldname": "column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "meeting_arranged_by",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_standard_filter": 1,
+   "label": "Meeting Arranged By",
+   "options": "User"
+  },
+  {
+   "fieldname": "salutation",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Salutation",
+   "options": "Salutation"
+  },
+  {
+   "fieldname": "contact_person",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Contact Person",
+   "options": "Contact"
+  },
+  {
+   "fieldname": "contact",
+   "fieldtype": "Data",
+   "label": "Contact",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "contact_person.mobile_no",
+   "fieldname": "mobile_no",
+   "fieldtype": "Data",
+   "label": "Mobile No"
+  },
+  {
+   "fetch_from": "contact_person.email_id",
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Email Id",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Link",
+   "label": "Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "address_display",
+   "fieldtype": "Small Text",
+   "label": "Address Display",
+   "read_only": 1
+  },
+  {
+   "fieldname": "company_details",
+   "fieldtype": "Section Break",
+   "label": "Company Details"
+  },
+  {
+   "fieldname": "turnover",
+   "fieldtype": "Currency",
+   "label": "Turnover (In Crs)"
+  },
+  {
+   "fieldname": "employees",
+   "fieldtype": "Int",
+   "label": "Employees"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "industry",
+   "fieldtype": "Link",
+   "label": "Industry",
+   "options": "Industry Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "business_specifics",
+   "fieldtype": "Small Text",
+   "label": "Business Specifics"
+  },
+  {
+   "fieldname": "participants",
+   "fieldtype": "Section Break",
+   "label": "Participants"
+  },
+  {
+   "fieldname": "meeting_company_representative",
+   "fieldtype": "Table",
+   "label": "Meeting Company Representative",
+   "options": "Meeting Company Representative"
+  },
+  {
+   "fieldname": "meeting_party_representative",
+   "fieldtype": "Table",
+   "label": "Meeting Party Representative",
+   "options": "Meeting Party Representative"
+  },
+  {
+   "fieldname": "meeting_discussion",
+   "fieldtype": "Section Break",
+   "label": "Meeting Discussion"
+  },
+  {
+   "fieldname": "cc_to",
+   "fieldtype": "Data",
+   "label": "CC To"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "discussion",
+   "fieldtype": "Text Editor",
+   "label": "Discussion",
+   "reqd": 1
+  },
+  {
+   "fieldname": "actionable",
+   "fieldtype": "Section Break",
+   "label": "Actionable"
+  },
+  {
+   "fieldname": "actionables",
+   "fieldtype": "Table",
+   "label": "Actionables",
+   "options": "Meeting Actionable"
+  },
+  {
+   "fieldname": "sec_brk1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "contact_by",
+   "fieldtype": "Link",
+   "label": "Next Contact By",
+   "options": "User"
+  },
+  {
+   "fieldname": "send_mail",
+   "fieldtype": "Button",
+   "label": "Send Mail"
+  },
+  {
+   "fieldname": "col_brk1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contact_date",
+   "fieldtype": "Date",
+   "label": "Next Contact Date"
+  },
+  {
+   "fieldname": "expenses",
+   "fieldtype": "Section Break",
+   "label": "Expenses"
+  },
+  {
+   "fieldname": "expense_done_by",
+   "fieldtype": "Link",
+   "label": "Expense Done By",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "local_travel_expense",
+   "fieldtype": "Currency",
+   "label": "Local Travel Expense"
+  },
+  {
+   "fieldname": "train_tickets",
+   "fieldtype": "Currency",
+   "label": "Train Tickets"
+  },
+  {
+   "fieldname": "column_break_expense",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "flight_ticket",
+   "fieldtype": "Currency",
+   "label": "Flight Ticket"
+  },
+  {
+   "fieldname": "food_expense",
+   "fieldtype": "Currency",
+   "label": "Food Expense"
+  },
+  {
+   "fieldname": "lodging_cost",
+   "fieldtype": "Currency",
+   "label": "Lodging Cost"
+  },
+  {
+   "fieldname": "total_expense",
+   "fieldtype": "Currency",
+   "label": "Total Expense"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "opportunity",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Opportunity",
+   "options": "Opportunity"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Meeting",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "icon": "fa fa-handshake-o",
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-02-01 10:53:29.403199",
+ "modified_by": "Administrator",
+ "module": "Meeting Management",
+ "name": "Meeting",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "organization,contact_person",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "organization",
+ "track_changes": 1
+}

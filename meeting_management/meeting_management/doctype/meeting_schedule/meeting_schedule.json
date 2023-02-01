@@ -1,0 +1,219 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2022-09-27 17:30:08.434799",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "party_type",
+  "party",
+  "scheduled_from",
+  "scheduled_to",
+  "company",
+  "organisation",
+  "is_online",
+  "column_break_7",
+  "meeting_arranged_by",
+  "contact",
+  "contact_person_name",
+  "mobile_no",
+  "email_id",
+  "meeting_agenda",
+  "description",
+  "cc_to",
+  "invitation_message",
+  "send_invitation",
+  "amended_from",
+  "lead",
+  "customer",
+  "opportunity"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "SCH-"
+  },
+  {
+   "fieldname": "party_type",
+   "fieldtype": "Select",
+   "label": "Party Type",
+   "options": "\nLead\nCustomer\nSupplier\nSales Partner"
+  },
+  {
+   "fieldname": "party",
+   "fieldtype": "Dynamic Link",
+   "label": "Party",
+   "options": "party_type"
+  },
+  {
+   "fieldname": "scheduled_from",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Scheduled From",
+   "reqd": 1
+  },
+  {
+   "fieldname": "scheduled_to",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Scheduled To",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fetch_from": "lead.company_name",
+   "fieldname": "organisation",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Organisation",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_online",
+   "fieldtype": "Check",
+   "label": "Is Online"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "meeting_arranged_by",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_standard_filter": 1,
+   "label": "Meeting Arranged By",
+   "options": "User"
+  },
+  {
+   "fieldname": "contact",
+   "fieldtype": "Link",
+   "label": "Contact",
+   "options": "Contact"
+  },
+  {
+   "fetch_from": "contact.first_name",
+   "fieldname": "contact_person_name",
+   "fieldtype": "Data",
+   "label": "Contact Person Name"
+  },
+  {
+   "fetch_from": "contact.mobile_no",
+   "fieldname": "mobile_no",
+   "fieldtype": "Data",
+   "label": "Mobile No"
+  },
+  {
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Email Id",
+   "options": "Email"
+  },
+  {
+   "fieldname": "meeting_agenda",
+   "fieldtype": "Small Text",
+   "label": "Meeting Agenda"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "cc_to",
+   "fieldtype": "Data",
+   "label": "CC To"
+  },
+  {
+   "fieldname": "invitation_message",
+   "fieldtype": "Text Editor",
+   "label": "Invitation Message"
+  },
+  {
+   "fieldname": "send_invitation",
+   "fieldtype": "Button",
+   "label": "Send Invitation",
+   "options": "send_invitation"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Meeting Schedule",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "lead",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Lead",
+   "options": "Lead"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "opportunity",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Opportunity",
+   "options": "Opportunity"
+  }
+ ],
+ "links": [],
+ "modified": "2023-02-01 10:51:58.924248",
+ "modified_by": "Administrator",
+ "module": "Meeting Management",
+ "name": "Meeting Schedule",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "organisation,contact_person_name",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "organisation",
+ "track_changes": 1
+}

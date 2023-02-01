@@ -1,0 +1,45 @@
+{
+ "actions": [],
+ "creation": "2022-09-27 17:30:34.784730",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "actionable",
+  "responsible",
+  "expected_completion_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "actionable",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Actionable"
+  },
+  {
+   "fieldname": "responsible",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Responsible"
+  },
+  {
+   "fieldname": "expected_completion_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Expected Completion Date"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2023-02-01 10:52:29.099080",
+ "modified_by": "Administrator",
+ "module": "Meeting Management",
+ "name": "Meeting Actionable",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
