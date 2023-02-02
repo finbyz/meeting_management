@@ -223,7 +223,7 @@ def set_address_details(out, party, party_type):
 def set_contact_details(out, party, party_type):
 
 	if party_type == "Lead":
-		if not party.organization_lead:
+		if not party.company_name:
 			out.update({
 				"contact_person": None,
 				"contact_display": party.lead_name,
