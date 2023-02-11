@@ -10,7 +10,7 @@ from frappe import msgprint, db, _
 import json
 from frappe.utils import cint, getdate, get_fullname, get_url_to_form,now_datetime
 # from erpnext.accounts.party import get_party_details
-from meeting.meeting.doctype.meeting_schedule.meeting_schedule import get_party_details
+from meeting_management.meeting_management.doctype.meeting_schedule.meeting_schedule import get_party_details
 from email.mime.base import MIMEBase
 from email.mime.text import MIMEText
 from email.utils import COMMASPACE, formatdate
