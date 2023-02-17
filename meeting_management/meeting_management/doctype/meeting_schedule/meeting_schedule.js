@@ -15,13 +15,25 @@ frappe.ui.form.on('Meeting Schedule', {
 				frm : frm
 			})
 		})
+	
 	},
 
-	// onload: function(frm) {
-	// 	if (frm.doc.party) {
-	// 		frm.trigger("get_party_details");
-	// 	}
-	// },
+	email_template:function(frm){
+		frm.call({
+			method:"frappe.email.doctype.email_template.email_template.get_email_template",
+			args:{
+				template_name:frm.doc.email_template,
+				doc:frm.doc
+			},
+			callback: function(r){
+				
+				frm.set_value("invitation_message", r.message.message)
+
+			}
+		})
+	},
+
+	
 	scheduled_from(frm) {
 		if (frm.doc.scheduled_from && !frm.doc.scheduled_to){
 		    // frm.set_value('scheduled_to',frm.doc.scheduled_from)
