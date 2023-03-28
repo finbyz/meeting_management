@@ -10,6 +10,9 @@
 * This app integrates seamlessly without any hassle and error.
 * You can view the number of meetings done for the particular Leads, Opportunity or customer under the connection (Dashboard) section for the reference.
 
+[![2  How to Use Meeting Management App in ERPNext](https://user-images.githubusercontent.com/18363620/228132633-80342d1c-8a2a-4d88-bc88-be04e5eaf377.png)](https://youtube.com/watch?v=u3WYIUx5TD0&feature=shares)
+
+
 ## How to use Meeting Schedule
 * Before this Meeting App, I am sure you must be using your Email Calendar, Google Calendar to schedule the meeting with your Leads/Opportunity/Customers.
 * Also, you must have noticed it takes time to draft and email, also, we miss out on uniformity for every meeting invite we send.
