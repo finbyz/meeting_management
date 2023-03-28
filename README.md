@@ -20,8 +20,8 @@
 * The unique part is this would also be seen in the history of the document (Lead, Opportunity or customer)
 * Quick Video to understand the Meeting Schedule Document Process: 
 
+![1_AdobeExpress](https://user-images.githubusercontent.com/18363620/228183395-bf6f95c5-499f-4a32-9012-70b1d2e3a05f.gif)
 
-https://user-images.githubusercontent.com/18363620/216235911-3aeb64e3-f146-44dc-aa0c-8ae1212b3332.mp4
 
 
 ## How to use Meeting Notes
@@ -32,7 +32,8 @@ https://user-images.githubusercontent.com/18363620/216235911-3aeb64e3-f146-44dc-
 * This would also be seen in the history of the document.
 * Quick Video to understand the Meeting Note (Create Meeting) Document Process:
 
+![2_AdobeExpress](https://user-images.githubusercontent.com/18363620/228183700-000193bd-68f3-4ce2-927f-f4c57fda4613.gif)
 
 
-https://user-images.githubusercontent.com/18363620/216236660-4a5f1cbd-2ca4-4e94-a11a-e8416acc3613.mp4
+
 
