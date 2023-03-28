@@ -149,6 +149,7 @@
    "options": "Contact"
   },
   {
+   "fetch_from": "contact_person.first_name",
    "fieldname": "contact",
    "fieldtype": "Data",
    "label": "Contact",
@@ -162,6 +163,7 @@
   },
   {
    "fetch_from": "contact_person.email_id",
+   "fetch_if_empty": 1,
    "fieldname": "email_id",
    "fieldtype": "Data",
    "label": "Email Id",
@@ -351,7 +353,7 @@
  "icon": "fa fa-handshake-o",
  "is_submittable": 1,
  "links": [],
- "modified": "2023-02-01 10:53:29.403199",
+ "modified": "2023-03-17 05:16:57.196272",
  "modified_by": "Administrator",
  "module": "Meeting Management",
  "name": "Meeting",

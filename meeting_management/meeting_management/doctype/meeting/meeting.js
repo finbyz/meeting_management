@@ -1,4 +1,4 @@
-// Copyright (c) 2017, FinByz Tech Pvt. Ltd. and contributors
+// Copyright (c) 2023, FinByz Tech Pvt. Ltd. and contributors
 // For license information, please see license.txt
 
 var calculate_total_expense = function(frm) {

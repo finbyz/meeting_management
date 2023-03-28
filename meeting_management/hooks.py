@@ -1,3 +1,6 @@
+# Copyright (c) 2023, Finbyz Tech PVT LTD and contributors
+# For license information, please see license.txt
+
 from . import __version__ as app_version
 
 app_name = "meeting_management"

@@ -1,6 +1,6 @@
-# -*- coding: utf-8 -*-
-# Copyright (c) 2017, FinByz Tech Pvt. Ltd. and contributors
+# Copyright (c) 2023, Finbyz Tech PVT LTD and contributors
 # For license information, please see license.txt
+
 
 from __future__ import unicode_literals
 import frappe
@@ -31,6 +31,7 @@ class MeetingSchedule(Document):
 
 		CRLF = "\r\n"
 		default_sender_name, default_sender =frappe.db.get_value('Email Account',{'default_outgoing':1},['name','email_id'])
+		
 		if not default_sender:
 			frappe.throw("Please Setup Default Outgoing Email Account.")
 		organizer = "ORGANIZER;CN=" +default_sender+":mailto:"+default_sender
@@ -90,7 +91,8 @@ class MeetingSchedule(Document):
 		email_account = EmailAccount.find_outgoing(match_by_doctype=None)
 		password = get_decrypted_password(email_account.doctype, email_account.name, "password")
 
-		smtpserver = SMTPServer(server = email_account.smtp_server, login = email_account.email_id, password = password, service = email_account.service, port=email_account.smtp_port, use_ssl = email_account.use_ssl_for_outgoing, use_tls = email_account.use_tls)
+		# smtpserver = SMTPServer(server = email_account.smtp_server, login = email_account.email_id, password = password, service = email_account.service, port=email_account.smtp_port, use_ssl = email_account.use_ssl_for_outgoing, use_tls = email_account.use_tls)
+		smtpserver = SMTPServer(server = email_account.smtp_server, login = email_account.email_id, password = password, port=email_account.smtp_port, use_ssl = email_account.use_ssl_for_outgoing, use_tls = email_account.use_tls)
 		smtpserver.session.sendmail(default_sender, attendees, msg.as_string())
 
 		doc = frappe.new_doc("Communication")
@@ -110,7 +112,7 @@ class MeetingSchedule(Document):
 		doc.user = frappe.session.user
 		doc.email_account = default_sender_name
 		doc.save(ignore_permissions=True)
-
+		frappe.msgprint("Mail Sent Successfully")
 @frappe.whitelist()
 def make_meeting(source_name, target_doc=None):	
 	doclist = get_mapped_doc("Meeting Schedule", source_name, {
@@ -120,12 +122,16 @@ def make_meeting(source_name, target_doc=None):
 					"name": "schedule_ref",
 					"scheduled_from": "meeting_from",
 					"scheduled_to": "meeting_to",
+					"contact":"contact_person",
+					'email_id':'email_id'
+
 				},
 				"field_no_map": [
 					"naming_series",
 					"lead",
 					"customer",
-					"opportunity"
+					"opportunity",
+					"email_id"
 				]
 			}
 	}, target_doc)	

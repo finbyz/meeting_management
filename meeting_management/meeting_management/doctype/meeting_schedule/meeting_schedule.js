@@ -1,3 +1,5 @@
+// Copyright (c) 2023, FinByz Tech Pvt. Ltd. and contributors
+// For license information, please see license.txt
 this.frm.add_fetch('contact', 'email_id', 'email_id');
 
 cur_frm.set_query("contact", function() {

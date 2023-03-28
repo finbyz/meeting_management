@@ -1,5 +1,6 @@
-# Copyright (c) 2023, Finbyz Tech PVT LTD and Contributors
-# See license.txt
+# Copyright (c) 2023, Finbyz Tech PVT LTD and contributors
+# For license information, please see license.txt
+
 
 # import frappe
 from frappe.tests.utils import FrappeTestCase

@@ -177,8 +177,9 @@
    "options": "Opportunity"
   }
  ],
+ "is_calendar_and_gantt": 1,
  "links": [],
- "modified": "2023-02-01 10:51:58.924248",
+ "modified": "2023-03-16 07:26:07.858131",
  "modified_by": "Administrator",
  "module": "Meeting Management",
  "name": "Meeting Schedule",
