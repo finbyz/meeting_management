@@ -37,6 +37,14 @@ frappe.ui.form.on('Meeting', {
 	},
 	refresh: function(frm) {
 		frm.fields_dict.contact_person.get_query = function(doc) {
+			if (!frm.doc.party_type || !frm.doc.party) {
+				frappe.msgprint(__("Please select Party Type and Party first"));
+				return {
+					filters: {
+						name: null
+					}
+				};
+			}
 			return {
 				query: 'frappe.contacts.doctype.contact.contact.contact_query',
 				filters: {
@@ -46,6 +54,14 @@ frappe.ui.form.on('Meeting', {
 			}
 		};
 		frm.fields_dict.meeting_party_representative.grid.get_field("contact").get_query = function(doc,cdt,cdn) {
+			if (!frm.doc.party_type || !frm.doc.party) {
+				frappe.msgprint(__("Please select Party Type and Party first"));
+				return {
+					filters: {
+						name: null
+					}
+				};
+			}
 			return {
 				query: 'frappe.contacts.doctype.contact.contact.contact_query',
 				filters: {
