@@ -25,10 +25,13 @@ import smtplib
 from datetime import datetime
 import datetime
 from frappe.utils import get_datetime
+from frappe.utils import getdate, formatdate  
+
 
 class Meeting(Document):
 	
 	def validate(self):
+		# self.create_tasks_from_meeting()
 		if self.party_type and self.party:
 			data = get_party_details(party_type=self.party_type,party=self.party)
 			if data:
@@ -45,6 +48,7 @@ class Meeting(Document):
 				frappe.throw(_("Meeting To Date must be after Meeting From Date"))
 
 	def on_submit(self):
+	
 		user_name = frappe.db.get_value("Employee",{"user_id":frappe.session.user},"employee_name")
 		url = get_url_to_form("Meeting", self.name)
 		if user_name:
@@ -75,6 +79,7 @@ class Meeting(Document):
 			if not target_lead.mobile_no:
 				target_lead.mobile_no = self.mobile_no
 			target_lead.save(ignore_permissions=True)
+			
 
 @frappe.whitelist()
 def get_events(start, end, filters=None):
