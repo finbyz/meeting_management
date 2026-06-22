@@ -1,0 +1,32 @@
+{
+ "attach_files": "",
+ "attach_print": 0,
+ "channel": "Email",
+ "condition_type": "Python",
+ "creation": "2026-06-01 16:37:17.237115",
+ "date_changed": "date",
+ "days_in_advance": 1,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "ToDo",
+ "enabled": 1,
+ "event": "Days Before",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "{% set task = frappe.get_doc(\"SNM Task\", doc.reference_name) %}\n\n<div style=\"font-family:Segoe UI, Arial, sans-serif;background:#f4f6f9;padding:15px;\">\n\n    <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\"\n           style=\"max-width:600px;\n                  margin:auto;\n                  background:#ffffff;\n                  border:1px solid #e5e7eb;\n                  border-radius:8px;\">\n\n        <tr>\n            <td style=\"background:#dc2626;padding:15px 20px;\">\n                <h2 style=\"margin:0;color:#ffffff;font-size:20px;\">\n                    \u23f0 Task Due Tomorrow\n                </h2>\n            </td>\n        </tr>\n\n        <tr>\n            <td style=\"padding:20px;\">\n\n                <p>Hello,</p>\n\n                <p>\n                    This is a reminder that the following task is due tomorrow.\n                </p>\n\n                <table width=\"100%\" cellpadding=\"8\" cellspacing=\"0\"\n                       style=\"border-collapse:collapse;font-size:14px;\">\n\n                    <tr>\n                        <td width=\"140\"\n                            style=\"background:#f8fafc;border:1px solid #e5e7eb;font-weight:600;\">\n                            Task Subject\n                        </td>\n                        <td style=\"border:1px solid #e5e7eb;\">\n                            {{ task.subject }}\n                        </td>\n                    </tr>\n\n                    <tr>\n                        <td style=\"background:#f8fafc;border:1px solid #e5e7eb;font-weight:600;\">\n                            Description\n                        </td>\n                        <td style=\"border:1px solid #e5e7eb;\">\n                            {{ task.description or \"-\" }}\n                        </td>\n                    </tr>\n\n                    <tr>\n                        <td style=\"background:#f8fafc;border:1px solid #e5e7eb;font-weight:600;\">\n                            Priority\n                        </td>\n                        <td style=\"border:1px solid #e5e7eb;\">\n                            {{ task.priority or \"-\" }}\n                        </td>\n                    </tr>\n\n                    <tr>\n                        <td style=\"background:#f8fafc;border:1px solid #e5e7eb;font-weight:600;\">\n                            Start Date\n                        </td>\n                        <td style=\"border:1px solid #e5e7eb;\">\n                            {{ task.start_date or \"-\" }}\n                        </td>\n                    </tr>\n\n                    <tr>\n                        <td style=\"background:#f8fafc;border:1px solid #e5e7eb;font-weight:600;\">\n                            Due Date\n                        </td>\n                        <td style=\"border:1px solid #e5e7eb;\">\n                            {{ task.due_date or \"-\" }}\n                        </td>\n                    </tr>\n\n                    <tr>\n                        <td style=\"background:#f8fafc;border:1px solid #e5e7eb;font-weight:600;\">\n                            Department\n                        </td>\n                        <td style=\"border:1px solid #e5e7eb;\">\n                            {{ task.department or \"-\" }}\n                        </td>\n                    </tr>\n\n                    <tr>\n                        <td style=\"background:#f8fafc;border:1px solid #e5e7eb;font-weight:600;\">\n                            Assigned By\n                        </td>\n                        <td style=\"border:1px solid #e5e7eb;\">\n                            {{ task.allocated_by or \"-\" }}\n                        </td>\n                    </tr>\n\n                </table>\n\n                <div style=\"margin-top:15px;\n                            padding:12px;\n                            background:#fef2f2;\n                            border-left:4px solid #dc2626;\n                            color:#7f1d1d;\">\n                    Please complete this task before the due date.\n                </div>\n\n                <div style=\"text-align:center;margin-top:20px;\">\n                    <a href=\"frappe.utis.get_url()/app/snm-task/{{ task.name }}\"\n                       style=\"background:#dc2626;\n                              color:#ffffff;\n                              text-decoration:none;\n                              padding:10px 22px;\n                              border-radius:5px;\n                              font-size:14px;\n                              font-weight:600;\n                              display:inline-block;\">\n                        Open Task\n                    </a>\n                </div>\n\n            </td>\n        </tr>\n\n        <tr>\n            <td style=\"background:#f9fafb;\n                       padding:12px;\n                       text-align:center;\n                       font-size:11px;\n                       color:#6b7280;\">\n                Meeting Management System\n            </td>\n        </tr>\n\n    </table>\n\n</div>",
+ "message_type": "Markdown",
+ "minutes_offset": 0,
+ "modified": "2026-06-01 16:43:29.580371",
+ "modified_by": "Administrator",
+ "module": "Meeting Management",
+ "name": "Due Date Reminder",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "allocated_to"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "\u23f0 Reminder: Task Due Tomorrow - {{ frappe.db.get_value(\"SNM Task\", doc.reference_name, \"subject\") }}"
+}

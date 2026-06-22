@@ -1,0 +1,21 @@
+[
+ {
+  "allow_guest": 0,
+  "api_method": "get_my_assigned_count",
+  "cron_format": null,
+  "disabled": 1,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "Before Insert",
+  "enable_rate_limit": 0,
+  "event_frequency": "All",
+  "modified": "2026-05-22 18:23:20.225543",
+  "module": "Meeting Management",
+  "name": "SNM Task",
+  "rate_limit_count": 5,
+  "rate_limit_seconds": 86400,
+  "reference_doctype": null,
+  "script": "user = frappe.session.user\n\n# Count documents where the field equals the user\n# Replace 'Your DocType' and 'assigned_to_field' with your setup\ncount = frappe.db.count(\"SNM Task\", filters={\"assigned_to\": user})\n\n# Return the payload back to the number card component\nfrappe.response['message'] = {\n    \"value\": count,\n    \"fieldtype\": \"Int\",\n    \"route_options\": {\"assigned_to\": user},\n    \"route\": [\"List\", \"SNM Task\"]\n}\n",
+  "script_type": "API"
+ }
+]

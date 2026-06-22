@@ -1,0 +1,19 @@
+{
+ "content": null,
+ "creation": "2026-05-01 12:08:38.899953",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2026-05-01 12:08:38.899953",
+ "modified_by": "Administrator",
+ "module": "Meeting Management",
+ "name": "meeting-calender",
+ "owner": "Administrator",
+ "page_name": "meeting-calender",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Meeting Calender"
+}

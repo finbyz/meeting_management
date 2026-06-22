@@ -1,0 +1,336 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "SNM-Task-.abbreviation.-.YYYY.-.#####",
+ "creation": "2026-03-23 17:28:04.991511",
+ "default_view": "Kanban",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "subject",
+  "status",
+  "parent_task",
+  "is_group",
+  "allocated_by",
+  "username",
+  "created_by",
+  "column_break0",
+  "task_no",
+  "start_date",
+  "meeting",
+  "priority",
+  "department",
+  "abbreviation",
+  "completed_by",
+  "completed_on",
+  "created_from_parent",
+  "column_break_ilsw",
+  "type",
+  "due_date",
+  "assigned_users",
+  "sb_details",
+  "description",
+  "whatsapp_number",
+  "sb_depends_on",
+  "depends_on",
+  "depends_on_tasks",
+  "lft",
+  "rgt",
+  "old_parent",
+  "parent_snm_task"
+ ],
+ "fields": [
+  {
+   "fieldname": "task_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Task No.",
+   "read_only": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Task Description",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Link",
+   "label": "Type",
+   "options": "Task Type"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Has Sub Task"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "default": "User",
+   "fieldname": "allocated_by",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Allocated By",
+   "options": "User"
+  },
+  {
+   "fetch_from": "allocated_by.full_name",
+   "fieldname": "username",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Username"
+  },
+  {
+   "fieldname": "column_break0",
+   "fieldtype": "Column Break",
+   "oldfieldtype": "Column Break",
+   "print_width": "50%",
+   "width": "50%"
+  },
+  {
+   "bold": 1,
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "no_copy": 1,
+   "oldfieldname": "status",
+   "oldfieldtype": "Select",
+   "options": "Open\nWorking\nPending Review\nOverdue\nTemplate\nCompleted\nCancelled"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Priority",
+   "oldfieldname": "priority",
+   "oldfieldtype": "Select",
+   "options": "Low\nMedium\nHigh\nUrgent",
+   "search_index": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "bold": 1,
+   "fieldname": "parent_task",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Parent Task",
+   "link_filters": "[[\"SNM Task\",\"is_group\",\"=\",1],[\"SNM Task\",\"name\",\"!=\",\"eval:doc.name\"]]",
+   "options": "SNM Task",
+   "search_index": 1
+  },
+  {
+   "depends_on": "eval: doc.status == \"Completed\"",
+   "fieldname": "completed_by",
+   "fieldtype": "Link",
+   "label": "Completed By",
+   "no_copy": 1,
+   "options": "User"
+  },
+  {
+   "depends_on": "eval: doc.status == \"Completed\"",
+   "fieldname": "completed_on",
+   "fieldtype": "Date",
+   "label": "Completed On",
+   "mandatory_depends_on": "eval: doc.status == \"Completed\""
+  },
+  {
+   "fieldname": "sb_details",
+   "fieldtype": "Section Break",
+   "label": "Details",
+   "oldfieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Remarks",
+   "max_height": "80px",
+   "oldfieldname": "description",
+   "oldfieldtype": "Text Editor"
+  },
+  {
+   "fieldname": "sb_depends_on",
+   "fieldtype": "Section Break",
+   "oldfieldtype": "Section Break"
+  },
+  {
+   "fieldname": "depends_on",
+   "fieldtype": "Table",
+   "label": "Sub Task",
+   "options": "Child Tasks"
+  },
+  {
+   "fieldname": "depends_on_tasks",
+   "fieldtype": "Code",
+   "hidden": 1,
+   "label": "Depends on Tasks",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Old Parent",
+   "options": "SNM Task"
+  },
+  {
+   "fieldname": "parent_snm_task",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "ignore_user_permissions": 1,
+   "label": "Parent SNM Task",
+   "options": "SNM Task"
+  },
+  {
+   "default": "0",
+   "fieldname": "created_from_parent",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Created from parent"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due Date"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "meeting",
+   "fieldtype": "Link",
+   "label": "Meeting Reference",
+   "options": "Meeting",
+   "read_only": 1
+  },
+  {
+   "fieldname": "whatsapp_number",
+   "fieldtype": "Small Text",
+   "hidden": 1,
+   "label": "Whatsapp Number"
+  },
+  {
+   "fetch_from": "department.custom_abbreviation",
+   "fieldname": "abbreviation",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Abbreviation"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Created By",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_ilsw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "assigned_users",
+   "fieldtype": "Table MultiSelect",
+   "label": "Assigned Users",
+   "options": "SNM Task Assigned User"
+  }
+ ],
+ "icon": "fa fa-check",
+ "is_calendar_and_gantt": 1,
+ "is_tree": 1,
+ "links": [],
+ "max_attachments": 5,
+ "modified": "2026-06-17 10:53:48.793986",
+ "modified_by": "Administrator",
+ "module": "Meeting Management",
+ "name": "SNM Task",
+ "naming_rule": "Expression",
+ "nsm_parent_field": "parent_snm_task",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Desk User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "read_only": 1,
+ "row_format": "Dynamic",
+ "search_fields": "subject",
+ "show_name_in_global_search": 1,
+ "show_preview_popup": 1,
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "subject",
+ "track_seen": 1
+}

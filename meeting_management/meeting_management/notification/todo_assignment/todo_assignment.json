@@ -1,0 +1,31 @@
+{
+ "attach_files": "",
+ "attach_print": 0,
+ "channel": "Email",
+ "condition_type": "Python",
+ "creation": "2026-06-01 15:18:53.692820",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "ToDo",
+ "enabled": 1,
+ "event": "New",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<p>{% set task = frappe.get_doc(\"SNM Task\", doc.reference_name) %}</p>\n\n<div style=\"font-family:Segoe UI, Arial, sans-serif;background:#f4f6f9;padding:15px;\">\n\n    <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\"\n        style=\"max-width:600px;\n               margin:auto;\n               background:#ffffff;\n               border:1px solid #e5e7eb;\n               border-radius:8px;\n               overflow:hidden;\">\n\n        <!-- Header -->\n        <tr>\n            <td style=\"background:#1f4e79;padding:15px 20px;\">\n                <h2 style=\"margin:0;font-size:20px;color:#ffffff;\">\n                    \ud83d\udccc New Task Assigned\n                </h2>\n            </td>\n        </tr>\n\n        <!-- Content -->\n        <tr>\n            <td style=\"padding:20px;\">\n\n                <p style=\"margin-top:0;color:#374151;font-size:14px;\">\n                    Hello,\n                </p>\n\n                <p style=\"color:#6b7280;font-size:14px;\">\n                    A new task has been assigned to you.\n                </p>\n\n                <table width=\"100%\" cellpadding=\"8\" cellspacing=\"0\"\n                    style=\"border-collapse:collapse;font-size:14px;\">\n\n                    <tr>\n                        <td width=\"140\"\n                            style=\"background:#f8fafc;border:1px solid #e5e7eb;font-weight:600;\">\n                            Subject\n                        </td>\n                        <td style=\"border:1px solid #e5e7eb;\">\n                            {{ task.subject }}\n                        </td>\n                    </tr>\n\n                    <tr>\n                        <td style=\"background:#f8fafc;border:1px solid #e5e7eb;font-weight:600;\">\n                            Description\n                        </td>\n                        <td style=\"border:1px solid #e5e7eb;\">\n                            {{ task.description or \"-\" }}\n                        </td>\n                    </tr>\n\n                    <tr>\n                        <td style=\"background:#f8fafc;border:1px solid #e5e7eb;font-weight:600;\">\n                            Start Date\n                        </td>\n                        <td style=\"border:1px solid #e5e7eb;\">\n                            {{ task.start_date or \"-\" }}\n                        </td>\n                    </tr>\n\n                    <tr>\n                        <td style=\"background:#f8fafc;border:1px solid #e5e7eb;font-weight:600;\">\n                            Due Date\n                        </td>\n                        <td style=\"border:1px solid #e5e7eb;\">\n                            {{ task.due_date or \"-\" }}\n                        </td>\n                    </tr>\n\n\n                    <tr>\n                        <td style=\"background:#f8fafc;border:1px solid #e5e7eb;font-weight:600;\">\n                            Allocated By\n                        </td>\n                        <td style=\"border:1px solid #e5e7eb;\">\n                            {{ task.allocated_by or \"-\" }}\n                        </td>\n                    </tr>\n\n                </table>\n\n                    <div style=\"text-align:center;margin-top:20px;\">\n                        <a href=\"{{ frappe.utils.get_url() }}/app/snm-task/{{ task.name }}\"\n                            style=\"background:#1f4e79;\n                                   color:#ffffff;\n                                   text-decoration:none;\n                                   padding:10px 22px;\n                                   border-radius:5px;\n                                   font-size:14px;\n                                   font-weight:600;\n                                   display:inline-block;\">\n                            Open Task\n                        </a>\n                    </div>\n\n                <div style=\"margin-top:18px;\n                            padding:10px;\n                            background:#eff6ff;\n                            border-left:3px solid #2563eb;\n                            font-size:13px;\n                            color:#374151;\">\n                    Please review the task and update its progress regularly.\n                </div>\n\n            </td>\n        </tr>\n\n        <!-- Footer -->\n        <tr>\n            <td style=\"background:#f9fafb;\n                       padding:12px;\n                       text-align:center;\n                       font-size:11px;\n                       color:#6b7280;\">\n                Meeting Management System\n            </td>\n        </tr>\n\n    </table>\n\n</div>\n",
+ "message_type": "Markdown",
+ "minutes_offset": 0,
+ "modified": "2026-06-02 16:28:11.056978",
+ "modified_by": "Administrator",
+ "module": "Meeting Management",
+ "name": "ToDo Assignment",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "allocated_to"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "New Task Assigned - {{ doc.description }}"
+}

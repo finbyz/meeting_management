@@ -1,0 +1,20 @@
+{
+ "app": "meeting_management",
+ "bg_color": "gray",
+ "creation": "2026-06-02 13:10:30.161927",
+ "docstatus": 0,
+ "doctype": "Desktop Icon",
+ "hidden": 0,
+ "icon_type": "Link",
+ "idx": 0,
+ "label": "Meeting Management",
+ "link_to": "Meeting Management",
+ "link_type": "Workspace Sidebar",
+ "modified": "2026-06-02 17:32:47.028471",
+ "modified_by": "Administrator",
+ "name": "Meeting Management",
+ "owner": "Administrator",
+ "restrict_removal": 0,
+ "roles": [],
+ "standard": 1
+}

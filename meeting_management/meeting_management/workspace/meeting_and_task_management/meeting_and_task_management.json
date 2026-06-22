@@ -1,0 +1,124 @@
+{
+ "app": "meeting_management",
+ "charts": [
+  {
+   "chart_name": "Open Tasks x Total Tasks",
+   "label": "Open Tasks Vs Total Tasks "
+  },
+  {
+   "chart_name": "Task Prorities",
+   "label": "Task Prority"
+  }
+ ],
+ "content": "[{\"id\":\"7zV6W7YJ0s\",\"type\":\"paragraph\",\"data\":{\"text\":\"Stay on top of it all by creating to-dos in your notes and managing them your way.\",\"col\":12}},{\"id\":\"m1FVpH8TcK\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"My Overdue Tasks\",\"col\":3}},{\"id\":\"AU60FQyi3N\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"My To Do\",\"col\":3}},{\"id\":\"7SdQ3mmXBI\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"My Working Tasks\",\"col\":3}},{\"id\":\"uLy09ez8YJ\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"My Completed Tasks\",\"col\":3}},{\"id\":\"FfF6fzjtKs\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"OVERDUE Tasks\",\"col\":4}},{\"id\":\"Bf0NqCxhOO\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"To Do Task\",\"col\":4}},{\"id\":\"R1fzffhD68\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"WIP Tasks\",\"col\":4}},{\"id\":\"ECq5R8i9fB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Task Calendar View\",\"col\":3}},{\"id\":\"RuEhnR8ylL\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Task Tree\",\"col\":3}},{\"id\":\"OGMlFyMxJ9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Task Report View \",\"col\":3}},{\"id\":\"onUvqZy3xX\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Kanban View\",\"col\":3}},{\"id\":\"PkICpi_hXM\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Open Tasks Vs Total Tasks \",\"col\":6}},{\"id\":\"K6-aDX6hn8\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Task Prority\",\"col\":6}},{\"id\":\"ZkS5xemjkA\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"My event quick view\",\"col\":4}},{\"id\":\"qDAw9ceVFq\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"My Quick Task view\",\"col\":4}},{\"id\":\"GFdt5iTGDK\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Completed Tasks\",\"col\":4}},{\"id\":\"twUomZcxpM\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Meeting Calendar\",\"col\":4}}]",
+ "creation": "2026-03-20 12:28:24.849562",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "idx": 0,
+ "indicator_color": "cyan",
+ "is_hidden": 0,
+ "label": "Meeting and Task Management",
+ "link_type": "DocType",
+ "links": [],
+ "modified": "2026-04-21 16:40:44.998745",
+ "modified_by": "Administrator",
+ "module": "Meeting Management",
+ "name": "Meeting and Task Management",
+ "number_cards": [
+  {
+   "label": "My Overdue Tasks",
+   "number_card_name": "Overdue Tasks"
+  },
+  {
+   "label": "My To Do",
+   "number_card_name": "Total Tasks"
+  },
+  {
+   "label": "My Working Tasks",
+   "number_card_name": "Task InProgress"
+  },
+  {
+   "label": "My Completed Tasks",
+   "number_card_name": "Task completed"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [
+  {
+   "document_type": "SNM Task",
+   "label": "OVERDUE Tasks",
+   "quick_list_filter": "[[\"SNM Task\",\"status\",\"=\",\"Overdue\"]]"
+  },
+  {
+   "document_type": "SNM Task",
+   "label": "My Quick Task view",
+   "quick_list_filter": "[]"
+  },
+  {
+   "document_type": "SNM Task",
+   "label": "To Do Task",
+   "quick_list_filter": "[]"
+  },
+  {
+   "document_type": "SNM Task",
+   "label": "Completed Tasks",
+   "quick_list_filter": "[[\"SNM Task\",\"status\",\"=\",\"Completed\"]]"
+  },
+  {
+   "document_type": "SNM Task",
+   "label": "WIP Tasks",
+   "quick_list_filter": "[[\"SNM Task\",\"status\",\"=\",\"Working\"]]"
+  },
+  {
+   "document_type": "Event",
+   "label": "My event quick view",
+   "quick_list_filter": "[[\"Event\",\"subject\",\"is\",\"set\",false]]"
+  }
+ ],
+ "roles": [],
+ "sequence_id": 71.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Kanban View",
+   "type": "URL",
+   "url": "https://dev08.m.frappe.cloud/desk/snm-task/view/kanban/"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Task Calendar View",
+   "type": "URL",
+   "url": "https://dev08.m.frappe.cloud/app/snm-task/view/calendar/default"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Task Tree",
+   "type": "URL",
+   "url": "https://dev08.m.frappe.cloud/app/snm-task/view/tree"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Task Report View ",
+   "type": "URL",
+   "url": "https://dev-naman.nirankari.org/desk/snm-task/view/report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Meeting Calendar",
+   "type": "URL",
+   "url": "https://dev08.m.frappe.cloud/app/event/view/calendar/default"
+  }
+ ],
+ "title": "Meeting and Task Management",
+ "type": "Workspace"
+}

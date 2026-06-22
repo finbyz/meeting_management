@@ -1,0 +1,34 @@
+{
+ "attach_files": "",
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "",
+ "condition_type": "Python",
+ "creation": "2026-05-14 10:31:34.565248",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Meeting",
+ "enabled": 1,
+ "event": "Submit",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<div style=\"\n    font-family: Arial, sans-serif;\n    background: #f4f6f9;\n    padding: 25px;\n\">\n\n    <div style=\"\n        max-width: 600px;\n        margin: auto;\n        background: #ffffff;\n        border-radius: 14px;\n        overflow: hidden;\n        box-shadow: 0 4px 20px rgba(0,0,0,0.08);\n    \">\n\n        <!-- Header -->\n        <div style=\"\n            background: linear-gradient(135deg, #4f46e5, #7c3aed);\n            padding: 28px;\n            color: white;\n            text-align: center;\n        \">\n            <h2 style=\"\n                margin: 0;\n                font-size: 26px;\n                font-weight: 700;\n            \">\n                Meeting Scheduled\n            </h2>\n\n            <p style=\"\n                margin-top: 10px;\n                font-size: 14px;\n                opacity: 0.95;\n            \">\n                A new meeting has been successfully scheduled\n            </p>\n        </div>\n\n        <!-- Body -->\n        <div style=\"padding: 30px;\">\n\n            <p style=\"\n                margin-top: 0;\n                color: #4b5563;\n                font-size: 15px;\n                line-height: 1.7;\n            \">\n                Please find the meeting details below:\n            </p>\n\n            <!-- Details Card -->\n            <div style=\"\n                background: #f9fafb;\n                border: 1px solid #e5e7eb;\n                border-radius: 12px;\n                padding: 20px;\n            \">\n\n                <!-- Date -->\n                <div style=\"\n                    padding: 12px 0;\n                    border-bottom: 1px dashed #d1d5db;\n                \">\n                    <div style=\"\n                        color: #6b7280;\n                        font-size: 13px;\n                        margin-bottom: 4px;\n                    \">\n                        Meeting Date\n                    </div>\n\n                    <div style=\"\n                        font-size: 16px;\n                        font-weight: 600;\n                        color: #111827;\n                    \">\n                        {{ frappe.utils.formatdate(doc.meeting_from) }}\n                    </div>\n                </div>\n\n                <!-- From -->\n                <div style=\"\n                    padding: 12px 0;\n                    border-bottom: 1px dashed #d1d5db;\n                \">\n                    <div style=\"\n                        color: #6b7280;\n                        font-size: 13px;\n                        margin-bottom: 4px;\n                    \">\n                        From Time\n                    </div>\n\n                    <div style=\"\n                        font-size: 16px;\n                        font-weight: 600;\n                        color: #4f46e5;\n                    \">\n                        {{ doc.meeting_from }}\n                    </div>\n                </div>\n\n                <!-- To -->\n                <div style=\"\n                    padding: 12px 0;\n                    {% if meeting_arranged_by %}border-bottom: 1px dashed #d1d5db;{% endif %}\n                \">\n                    <div style=\"\n                        color: #6b7280;\n                        font-size: 13px;\n                        margin-bottom: 4px;\n                    \">\n                        To Time\n                    </div>\n\n                    <div style=\"\n                        font-size: 16px;\n                        font-weight: 600;\n                        color: #4f46e5;\n                    \">\n                        {{ doc.meeting_to }}\n                    </div>\n                </div>\n\n                {% if meeting_arranged_by %}\n                <!-- Arranged By -->\n                <div style=\"padding-top: 12px;\">\n\n                    <div style=\"\n                        color: #6b7280;\n                        font-size: 13px;\n                        margin-bottom: 4px;\n                    \">\n                        Meeting Arranged By\n                    </div>\n\n                    <div style=\"\n                        font-size: 16px;\n                        font-weight: 600;\n                        color: #111827;\n                    \">\n                        {{ doc.meeting_arranged_by }}\n                    </div>\n\n                </div>\n                {% endif %}\n                <div style=\"padding-top: 12px;\">\n\n                    <div style=\"\n                        color: #6b7280;\n                        font-size: 13px;\n                        margin-bottom: 4px;\n                    \">\n                        Meeting Link\n                    </div>\n\n                    <div style=\"\n                        font-size: 16px;\n                        font-weight: 600;\n                        color: #111827;\n                    \">\n                        <a href='{{doc.meet_link}}'>{{doc.meet_link}}</a>\n                    </div>\n\n                </div>\n\n            </div>\n\n        </div>\n\n        <!-- Footer -->\n        <div style=\"\n            text-align: center;\n            padding: 18px;\n            background: #f9fafb;\n            color: #6b7280;\n            font-size: 12px;\n        \">\n        </div>\n\n    </div>\n\n</div>",
+ "message_type": "Markdown",
+ "minutes_offset": 0,
+ "modified": "2026-05-14 17:01:26.074182",
+ "modified_by": "Administrator",
+ "module": "Meeting Management",
+ "name": "Meeting",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "user,meeting_party_representative"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "sender": "",
+ "sender_email": "",
+ "subject": "Meeting"
+}

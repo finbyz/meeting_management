@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_bulk_edit": 1,
  "autoname": "naming_series:",
  "creation": "2022-09-27 17:30:08.434799",
  "doctype": "DocType",
@@ -179,7 +180,7 @@
  ],
  "is_calendar_and_gantt": 1,
  "links": [],
- "modified": "2023-03-16 07:26:07.858131",
+ "modified": "2026-06-11 17:54:44.078834",
  "modified_by": "Administrator",
  "module": "Meeting Management",
  "name": "Meeting Schedule",
@@ -209,8 +210,21 @@
    "role": "Sales User",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Department Head",
+   "share": 1,
+   "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "search_fields": "organisation,contact_person_name",
  "sort_field": "modified",
  "sort_order": "DESC",

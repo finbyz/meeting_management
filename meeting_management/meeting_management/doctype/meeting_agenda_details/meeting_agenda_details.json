@@ -1,0 +1,42 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-06-16 14:56:10.955916",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "write_agenda",
+  "has_task"
+ ],
+ "fields": [
+  {
+   "fieldname": "write_agenda",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Write Agenda"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_task",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Has Task"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-06-16 14:56:54.726686",
+ "modified_by": "Administrator",
+ "module": "Meeting Management",
+ "name": "Meeting Agenda Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

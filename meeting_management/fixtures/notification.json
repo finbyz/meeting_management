@@ -1,0 +1,47 @@
+[
+ {
+  "attach_files": "",
+  "attach_print": 0,
+  "channel": "Email",
+  "condition": "",
+  "condition_type": "Python",
+  "date_changed": null,
+  "datetime_changed": null,
+  "datetime_last_run": null,
+  "days_in_advance": 0,
+  "docstatus": 0,
+  "doctype": "Notification",
+  "document_type": "Meeting",
+  "enabled": 1,
+  "event": "Value Change",
+  "filters": null,
+  "from_attach_field": null,
+  "is_standard": 0,
+  "message": "<div style=\"font-family: Arial, sans-serif; background:#f4f6f9; padding:25px;\">\n\n    <div style=\"\n        max-width:600px;\n        margin:auto;\n        background:#ffffff;\n        border-radius:14px;\n        overflow:hidden;\n        box-shadow:0 4px 20px rgba(0,0,0,0.08);\n    \">\n\n        <!-- Header -->\n        <div style=\"\n            background:linear-gradient(135deg,#4f46e5,#7c3aed);\n            padding:28px;\n            color:#ffffff;\n            text-align:center;\n        \">\n            <h2 style=\"\n                margin:0;\n                font-size:26px;\n                font-weight:700;\n            \">\n                Meeting Invitation\n            </h2>\n\n            <p style=\"\n                margin-top:10px;\n                font-size:14px;\n                opacity:0.95;\n            \">\n                A meeting has been scheduled. Please find the details below.\n            </p>\n        </div>\n\n        <!-- Body -->\n        <div style=\"padding:30px;\">\n\n            <p style=\"\n                margin-top:0;\n                color:#4b5563;\n                font-size:15px;\n                line-height:1.7;\n            \">\n                Dear Participant,\n            </p>\n\n            <p style=\"\n                color:#4b5563;\n                font-size:15px;\n                line-height:1.7;\n            \">\n                You are invited to attend the following meeting.\n            </p>\n\n            <!-- Details Card -->\n            <div style=\"\n                background:#f9fafb;\n                border:1px solid #e5e7eb;\n                border-radius:12px;\n                padding:20px;\n            \">\n\n                <!-- Meeting Date -->\n                <div style=\"\n                    padding:12px 0;\n                    border-bottom:1px dashed #d1d5db;\n                \">\n                    <div style=\"\n                        color:#6b7280;\n                        font-size:13px;\n                        margin-bottom:4px;\n                    \">\n                        Meeting Date\n                    </div>\n\n                    <div style=\"\n                        font-size:16px;\n                        font-weight:600;\n                        color:#111827;\n                    \">\n                        {{ frappe.utils.formatdate(doc.meeting_from) }}\n                    </div>\n                </div>\n\n                <!-- Start Time -->\n                <div style=\"\n                    padding:12px 0;\n                    border-bottom:1px dashed #d1d5db;\n                \">\n                    <div style=\"\n                        color:#6b7280;\n                        font-size:13px;\n                        margin-bottom:4px;\n                    \">\n                        Start Time\n                    </div>\n\n                    <div style=\"\n                        font-size:16px;\n                        font-weight:600;\n                        color:#4f46e5;\n                    \">\n                        {{ frappe.utils.format_datetime(doc.meeting_from) }}\n                    </div>\n                </div>\n\n                <!-- End Time -->\n                <div style=\"\n                    padding:12px 0;\n                    border-bottom:1px dashed #d1d5db;\n                \">\n                    <div style=\"\n                        color:#6b7280;\n                        font-size:13px;\n                        margin-bottom:4px;\n                    \">\n                        End Time\n                    </div>\n\n                    <div style=\"\n                        font-size:16px;\n                        font-weight:600;\n                        color:#4f46e5;\n                    \">\n                        {{ frappe.utils.format_datetime(doc.meeting_to) }}\n                    </div>\n                </div>\n\n                {% if doc.meeting_arranged_by %}\n                <!-- Arranged By -->\n                <div style=\"\n                    padding:12px 0;\n                    border-bottom:1px dashed #d1d5db;\n                \">\n                    <div style=\"\n                        color:#6b7280;\n                        font-size:13px;\n                        margin-bottom:4px;\n                    \">\n                        Meeting Arranged By\n                    </div>\n\n                    <div style=\"\n                        font-size:16px;\n                        font-weight:600;\n                        color:#111827;\n                    \">\n                        {{ doc.meeting_arranged_by }}\n                    </div>\n                </div>\n                {% endif %}\n\n                {% if doc.meet_link %}\n                <!-- Meeting Link -->\n                <div style=\"\n                    padding-top:20px;\n                    text-align:center;\n                \">\n\n                    <a href=\"{{ doc.meet_link }}\"\n                       target=\"_blank\"\n                       style=\"\n                            display:inline-block;\n                            background:#4f46e5;\n                            color:#ffffff;\n                            text-decoration:none;\n                            padding:12px 28px;\n                            border-radius:8px;\n                            font-size:14px;\n                            font-weight:600;\n                       \">\n                        Join Meeting\n                    </a>\n\n                    <div style=\"\n                        margin-top:10px;\n                        font-size:12px;\n                        color:#6b7280;\n                        word-break:break-all;\n                    \">\n                        {{ doc.meet_link }}\n                    </div>\n\n                </div>\n                {% endif %}\n\n            </div>\n\n            <p style=\"\n                margin-top:25px;\n                color:#4b5563;\n                font-size:15px;\n                line-height:1.7;\n            \">\n                Please join the meeting at the scheduled time using the meeting link provided above.\n            </p>\n\n\n            <p style=\"\n                margin-top:25px;\n                color:#111827;\n                font-size:15px;\n                line-height:1.7;\n            \">\n                Regards,<br>\n                {{ doc.meeting_arranged_by or frappe.session.user }}\n            </p>\n\n        </div>\n\n        <!-- Footer -->\n        <div style=\"\n            text-align:center;\n            padding:18px;\n            background:#f9fafb;\n            color:#6b7280;\n            font-size:12px;\n            border-top:1px solid #e5e7eb;\n        \">\n            This is an automated notification generated by the Meeting Management System.\n        </div>\n\n    </div>\n\n</div>",
+  "message_type": "Markdown",
+  "method": null,
+  "minutes_offset": 0,
+  "modified": "2026-06-01 12:50:21.671998",
+  "module": null,
+  "name": "Meeting",
+  "print_format": null,
+  "property_value": null,
+  "recipients": [
+   {
+    "bcc": null,
+    "cc": null,
+    "condition": null,
+    "receiver_by_document_field": "user,meeting_party_representative",
+    "receiver_by_role": null
+   }
+  ],
+  "send_system_notification": 0,
+  "send_to_all_assignees": 0,
+  "sender": "",
+  "sender_email": "",
+  "set_property_after_alert": null,
+  "slack_webhook_url": null,
+  "subject": "Meeting Invitation – {{ doc.meeting_title or \"Scheduled Meeting\" }} on {{ frappe.utils.formatdate(doc.meeting_from) }}",
+  "value_changed": "meet_link"
+ }
+]

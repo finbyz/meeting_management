@@ -1,0 +1,25 @@
+                            
+                            
+┌──────────────────────────┐
+│ 3 Blocking Code Findings │
+└──────────────────────────┘
+                                                
+  [36m[22m[24m  meeting_management/migrate.py[0m
+    ❯❱ frappe-semgrep-rules.rules.security.frappe-security-file-traversal
+          Detected the file system access. This code should be manually audited by security team to avoid file
+          traversal issues.                                                                                   
+                                                                                                              
+           51┆ with open(os.path.join(path, file)) as f:
+            ⋮┆----------------------------------------
+           73┆ with open(os.path.join(path, file)) as f:
+                           
+  [36m[22m[24m  setup.py[0m
+    ❯❱ frappe-semgrep-rules.rules.security.frappe-security-file-traversal
+          Detected the file system access. This code should be manually audited by security team to avoid file
+          traversal issues.                                                                                   
+                                                                                                              
+            3┆ with open("requirements.txt") as f:
+                            
+  BLOCKING CODE RULES FIRED:
+    frappe-semgrep-rules.rules.security.frappe-security-file-traversal
+
