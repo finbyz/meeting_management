@@ -75,6 +75,10 @@ class Meeting(Document):
 				self.address = data.customer_address
 				self.address_display = data.address_display
 				self.organization = data.organisation
+		
+		if self.meeting_from and self.meeting_to:
+			if self.meeting_from > self.meeting_to:
+				frappe.throw(_("Meeting To Date must be after Meeting From Date"))
 
 	def on_submit(self):	
 		self.create_event()

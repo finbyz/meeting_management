@@ -270,6 +270,7 @@ frappe.ui.form.on('Meeting', {
 		frm.trigger('set_link_documents');
 		// frm.trigger('calculate_km_wise_expense');
 	},
+
 	party: function(frm){
 		// if(frm.doc.party_type == "Customer" && frm.doc.party)
 		frappe.call({
@@ -314,7 +315,45 @@ frappe.ui.form.on('Meeting', {
 			frm.set_value('local_travel_expense',flt(frm.doc.total_kms) * flt(frm.doc.rate_per_km))
 		}			
 	},
-	
+    meeting_arranged_by: function(frm) {
+        if (frm.doc.__islocal) {
+            frappe.db.get_value("Employee", {"user_id": frm.doc.meeting_arranged_by}, ["name"], function(value) {
+                if (value && value.name) {
+                    // Check if a row with the specified condition already exists
+                    let row_exists = false;
+                    $.each(frm.doc.meeting_company_representative || [], function(i, row) {
+                        if (row.employee === value.name) {
+                            row_exists = true;
+                            return false; // Exit the loop
+                        }
+                    });
+
+                    // If the row doesn't exist, add a new row
+                    if (!row_exists) {
+                        let row = frm.add_child("meeting_company_representative");
+                        frappe.model.set_value(row.doctype, row.name, 'employee', value.name);
+                        frm.refresh_field('meeting_company_representative');
+                    }
+                }
+            });
+        }
+    },
+    contact_person: function(frm) {
+        if (frm.doc.__islocal) {
+            let row_exists = false;
+            $.each(frm.doc.meeting_party_representative || [], function(i, row) {
+                if (row.contact === frm.doc.contact_person) {
+                    row_exists = true;
+                    return false; // Exit the loop
+                }
+            });
+            if (!row_exists) {
+                let row = frm.add_child("meeting_party_representative");
+                frappe.model.set_value(row.doctype, row.name, 'contact', frm.doc.contact_person);
+                frm.refresh_field('meeting_party_representative');
+            }
+        }
+    }
 });
 
 
