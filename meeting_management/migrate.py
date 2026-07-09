@@ -7,6 +7,7 @@ import time
 RESET = "\033[0m"
 BRIGHT_GREEN = "\033[92m"
 BRIGHT_CYAN = "\033[96m"
+CUSTOMIZATION_MODULE = "Meeting Management"
 
 
 def show_loading(message, stop_event):
@@ -55,7 +56,7 @@ def create_custom_fields():
 
 		create_custom_fields(CUSTOM_FIELDS)
 
-	run_with_loading("Creating/Updating Custom Fields", task)
+	run_with_loading(f"[{CUSTOMIZATION_MODULE}] Creating/Updating Custom Fields", task)
 
 
 def create_property_setter():
@@ -84,4 +85,4 @@ def create_property_setter():
 
 				make_property_setter(field, is_system_generated=False)
 
-	run_with_loading("Creating/Updating Property Setter", task)
+	run_with_loading(f"[{CUSTOMIZATION_MODULE}] Creating/Updating Property Setter", task)
