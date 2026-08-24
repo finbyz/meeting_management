@@ -2,13 +2,12 @@
 // For license information, please see license.txt
 this.frm.add_fetch('contact', 'email_id', 'email_id');
 
-cur_frm.set_query("contact", function() {
-	return {
-		query: "frappe.contacts.doctype.contact.contact.contact_query",
-		filters: { link_doctype: cur_frm.doc.party_type, link_name: cur_frm.doc.party } 
-	};
-});
-
+// cur_frm.set_query("contact", function() {
+// 	return {
+// 		query: "frappe.contacts.doctype.contact.contact.contact_query",
+// 		filters: { link_doctype: cur_frm.doc.party_type, link_name: cur_frm.doc.party } 
+// 	};
+// });
 frappe.ui.form.on('Meeting Schedule', {
 	refresh: function(frm) {
 		frm.add_custom_button(__("Create Meeting"), function() {
@@ -18,6 +17,16 @@ frappe.ui.form.on('Meeting Schedule', {
 			})
 		})
 	
+	},
+	setup(frm) {
+		frm.set_query("contact", function () {
+			return {
+				filters: {
+					link_doctype: frm.doc.party_type,
+					link_name: frm.doc.party,
+				},
+			};
+		});
 	},
 
 	email_template:function(frm){
@@ -110,7 +119,7 @@ frappe.ui.form.on('Meeting Schedule', {
 	},
 	send_invitation: function(frm){
 		if (frm.is_dirty()){
-			frappe.throw("Please Save the Current Document and Then Proceed again")
+			frappe.throw(__("Please Save the Current Document and Then Proceed again"))
 		}
 		else{
 			frm.call('send_invitation');

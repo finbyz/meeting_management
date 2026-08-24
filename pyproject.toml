@@ -1,18 +1,21 @@
 [project]
 name = "meeting_management"
 authors = [
-    { name = "Finbyz Tech PVT LTD", email = "info@finbyz.tech"}
+    { name = "Finbyz Tech PVT LTD", email = "info@finbyz.tech" }
 ]
-description = "meeting"
-requires-python = ">=3.14"
+description = "Meeting Management"
+requires-python = ">=3.10"
 readme = "README.md"
 dynamic = ["version"]
-dependencies = []
+dependencies = [
+    # Add Python dependencies here, e.g.
+    # "requests>=2.31.0"
+]
 
 [build-system]
 requires = ["flit_core >=3.4,<4"]
 build-backend = "flit_core.buildapi"
 
-[tool.bench.frappe-dependencies]
-frappe = ">=16.0.0,<17.0.0"
-erpnext = ">=16.0.0,<17.0.0"
+# These dependencies are only installed when developer mode is enabled
+[tool.bench.dev-dependencies]
+# package_name = "~=1.1.0"

@@ -22,9 +22,10 @@ frappe.ui.form.on("Meeting", "lodging_cost", function(frm) {
 });
 
 frappe.ui.form.on('Meeting', {
+
 	send_mail: function(frm){
 		if (frm.is_dirty()){
-			frappe.throw("Please Save the Current Document and Then Proceed again")
+			frappe.throw(__("Please Save the Current Document and Then Proceed again"))
 		}
 		else{
 			frappe.call({
@@ -35,7 +36,14 @@ frappe.ui.form.on('Meeting', {
 			})
 		}
 	},
+	onload: function(frm) {
+		disable_add_and_delete_row(frm);
+	},
 	refresh: function(frm) {
+ 		let grid = frm.fields_dict.recurring_meeting.grid;
+        grid.wrapper.find('.grid-row-check').css('visibility', 'hidden');
+        grid.wrapper.find('.row-check').css('visibility', 'hidden');
+		grid.wrapper.find('.btn-open-row').hide();
 		frm.fields_dict.contact_person.get_query = function(doc) {
 			return {
 				query: 'frappe.contacts.doctype.contact.contact.contact_query',
@@ -63,6 +71,189 @@ frappe.ui.form.on('Meeting', {
 				}
 			}
 		};
+
+//     frm.add_custom_button(__("Create Task"), () => {
+
+//         let d = new frappe.ui.Dialog({
+//             title: "Create Task",
+//             fields: [
+//                 {
+//                     fieldname: "subject",
+//                     fieldtype: "Data",
+//                     label: "Task Subject",
+//                     reqd: 1
+//                 },
+//                 {
+//                     fieldname: "description",
+//                     fieldtype: "Small Text",
+//                     label: "Description"
+//                 },
+// 				 {
+//                     fieldname: "start_date",
+//                     fieldtype: "Date",
+//                     label: "Start Date"
+//                 },
+//                 {
+//                     fieldname: "due_date",
+//                     fieldtype: "Date",
+//                     label: "Due Date"
+//                 },
+//                 {
+//                     fieldname: "assigned_users",
+//                     fieldtype: "MultiSelectPills",
+//                     label: "Assigned Users",
+//                     get_data: function(txt) {
+//                         return frappe.db.get_link_options("User", txt, {
+//                             enabled: 1
+//                         });
+//                     }
+//                 },
+// 				//  {
+//                 //     fieldname: "assigned_users",
+//                 //     fieldtype: "Table",
+//                 //     label: "Assigned Users",
+//                 //     cannot_add_rows: false,
+//                 //     in_place_edit: true,
+//                 //     data: [],
+//                 //     fields: [
+//                 //         {
+//                 //             fieldtype: "Link",
+//                 //             fieldname: "user",
+//                 //             options: "User",
+//                 //             label: "User",
+//                 //             reqd: 1
+//                 //         }
+//                 //     ]
+//                 // },
+//                 {
+//                     fieldname: "assigned_to",
+//                     fieldtype: "Link",
+//                     options: "User",
+//                     label: "Allocated By",
+// 					default:frappe.session.user,
+// 					read_only:1
+//                 }
+//             ],
+//             primary_action_label: "Create",
+//             primary_action(values) {
+
+//                 frappe.call({
+//                     method: "meeting_management.meeting_management.doctype.meeting.meeting.create_task_from_dialog",
+//                     args: {
+//                         meeting: frm.doc.name,
+//                         data: values
+//                     },
+//                     callback: function (r) {
+//                         if (!r.exc) {
+//                             frappe.msgprint(__("Task Created Successfully"));
+//                             frm.reload_doc();
+//                             d.hide();
+//                         }
+//                     }
+//                 });
+
+//             }
+//         });
+
+//         d.show();
+
+//     }, __("Create"));
+// }
+	if (!frm.is_new() && frm.doc.docstatus === 1) {
+		frm.add_custom_button(__("Follow Up"), () => {
+
+	let d = new frappe.ui.Dialog({
+		title: "Create Follow Up",
+		fields: [
+			{
+				fieldname: "subject",
+				label: __("Subject"),
+				fieldtype: "Data",
+				reqd: 1,
+				default:frm.doc.meeting_title
+			},
+			{
+				fieldname: "follow_up_date",
+				label: __("Start Date"),
+				fieldtype: "Datetime",
+				reqd: 1
+			},
+			{
+				fieldname: "follow_end_date",
+				label: __("End Date"),
+				fieldtype: "Datetime",
+				reqd: 1
+			},
+			{
+				fieldname: "description",
+				label: __("Description"),
+				fieldtype: "Small Text",
+				default: frappe.utils.html2text(frm.doc.discussion || "")
+
+			},
+		],
+
+		primary_action_label: "Create",
+
+		primary_action(values) {
+
+			frappe.call({
+				method: "meeting_management.meeting_management.doctype.meeting.meeting.create_follow_up_meeting",
+				args: {
+					parent_meeting: frm.doc.name,
+					subject: values.subject,
+					description: values.description,
+					follow_up_date: values.follow_up_date,
+					follow_end_date:values.follow_end_date,
+					contact_person: frm.doc.contact_person
+				},
+				callback: function(r) {
+
+					if (r.message) {
+
+						frappe.msgprint(__("Follow Up Meeting Created"));
+
+						frappe.set_route("Form", "Meeting", r.message);
+					}
+				}
+			});
+
+			d.hide();
+		}
+	});
+
+	d.show();
+	
+},__("Create"));
+}
+	if(!frm.doc.meet_link && !frm.is_new()){
+				frm.add_custom_button(__("Create Google Meet"), () => {
+
+					frappe.call({
+						method: "meeting_management.meeting_management.doctype.meeting.meeting.create_google_meet",
+						args: {
+							event_name: frm.doc.name
+						},
+						callback(r) {
+
+							if (r.message) {
+								console.log(r.message);
+								frappe.msgprint(`
+								<a href="${r.message.meet_link}" target="_blank">
+									${r.message.meet_link}
+								</a>
+							`);
+								frm.reload_doc();
+							}
+						}
+					});
+
+				}).css({
+	"background-color": "black",
+	"color": "#fff"
+});
+			}
+
 	},
 	meeting_from(frm) {
 		if (frm.doc.meeting_from && !frm.doc.meeting_to){
@@ -160,5 +351,38 @@ frappe.ui.form.on('Meeting', {
                 frm.refresh_field('meeting_party_representative');
             }
         }
+    }
+});
+
+
+
+function disable_add_and_delete_row(frm) {
+  // Disable add/delete in recurring_meeting child table
+  frm.set_df_property("recurring_meeting", "cannot_add_rows", true);
+  frm.set_df_property("recurring_meeting", "cannot_delete_rows", true);
+  frm.fields_dict["recurring_meeting"].grid.add_new_row = () => {};
+  if (!frm.doc.recurring_meeting || frm.doc.recurring_meeting.length === 0) {
+    const days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ];
+
+    days.forEach((day) => {
+      let row = frm.add_child("recurring_meeting");
+      row.day = day;
+    });
+    frm.refresh_field("recurring_meeting");
+  }
+}
+
+frappe.ui.form.on("Meeting", {
+    refresh(frm) {
+       
+
     }
 });

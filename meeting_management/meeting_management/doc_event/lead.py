@@ -4,9 +4,9 @@
 import frappe
 from frappe.model.mapper import get_mapped_doc
 from frappe.utils import now_datetime, nowdate
-
+from frappe.model.document import Document
 @frappe.whitelist()
-def make_meetings(source_name, doctype, ref_doctype, target_doc=None):
+def make_meetings(source_name:str, doctype:str, ref_doctype:str, target_doc:Document | None =None):
 	def set_missing_values(source, target):
 		target.party_type = doctype
 		target.party = source_name

@@ -1,0 +1,14 @@
+{
+ "User": [
+  {
+   "dt": "User",
+   "fieldname": "custom_user_type",
+   "fieldtype": "Select",
+   "insert_after": "email",
+   "is_system_generated": 1,
+   "label": "Type of User",
+   "module": "Meeting Management",
+   "options": "Admin\nManager\nStaff\nGuest"
+  }
+ ]
+}

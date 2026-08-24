@@ -11,11 +11,49 @@ app_email = "info@finbyz.tech"
 app_license = "MIT"
 
 # Includes in <head>
-# ------------------
+# -----------------
+# -
+fixtures=[
+     {
+    "doctype": "Notification",
+        "filters": [
+            [
+                "name", "in", [
+                    "Meeting"
+                ]
+            ]
+        ]
+
+},
+{
+    "doctype": "Server Script",
+        "filters": [
+            [
+                "name", "in", [
+                    "SNM Task"
+                ]
+            ]
+        ]
+
+},
+# {
+#     "doctype": "Kanban Board",
+#         "filters": [
+#             [
+#                 "name", "in", [
+#                     "All Task","My Task"
+#                 ]
+#             ]
+#         ]
+
+# },
+]
+
+after_migrate = "meeting_management.migrate.after_migrate"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/meeting_management/css/meeting_management.css"
-# app_include_js = "/assets/meeting_management/js/meeting_management.js"
+app_include_js = "/assets/meeting_management/js/kanban_filter.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/meeting_management/css/meeting_management.css"
@@ -35,7 +73,14 @@ app_license = "MIT"
 doctype_js = {
     "Lead":"public/js/lead.js",
     "Customer":"public/js/customer.js",
-    "Opportunity":"public/js/opportunity.js"
+    "Opportunity":"public/js/opportunity.js",
+}
+permission_query_conditions = {
+	"Meeting": "meeting_management.meeting_management.doctype.meeting.meeting.get_permission_query_conditions"
+}
+
+has_permission = {
+	"Meeting": "meeting_management.meeting_management.doctype.meeting.meeting.has_permission"
 }
 # doctype_js = {"doctype" : "public/js/doctype.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
@@ -90,13 +135,7 @@ doctype_js = {
 # -----------
 # Permissions evaluated in scripted ways
 
-# permission_query_conditions = {
-#	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
-# }
-#
-# has_permission = {
-#	"Event": "frappe.desk.doctype.event.event.has_permission",
-# }
+
 
 # DocType Class
 # ---------------
@@ -120,27 +159,20 @@ override_doctype_dashboards = {
 #	}
 # }
 
+doc_events = {
+    "ToDo": {
+        "after_insert": "meeting_management.meeting_management.doctype.snm_task.snm_task.update_snm_task_whatsapp_numbers_from_todo",
+    }
+}
+
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-#	"all": [
-#		"meeting_management.tasks.all"
-#	],
-#	"daily": [
-#		"meeting_management.tasks.daily"
-#	],
-#	"hourly": [
-#		"meeting_management.tasks.hourly"
-#	],
-#	"weekly": [
-#		"meeting_management.tasks.weekly"
-#	],
-#	"monthly": [
-#		"meeting_management.tasks.monthly"
-#	],
-# }
-
+scheduler_events = {
+	"daily": [
+		"meeting_management.meeting_management.doctype.snm_task.snm_task.send_overdue_task_notifications"
+	]
+}
 # Testing
 # -------
 
@@ -149,7 +181,7 @@ override_doctype_dashboards = {
 # Overriding Methods
 # ------------------------------
 #
-# override_whitelisted_methods = {
+# override_whitelisted_methods = {customer_dashboard
 #	"frappe.desk.doctype.event.event.get_events": "meeting_management.event.get_events"
 # }
 #
@@ -195,3 +227,7 @@ override_doctype_dashboards = {
 # auth_hooks = [
 #	"meeting_management.auth.validate"
 # ]
+
+override_whitelisted_methods = {
+    "erpnext.selling.doctype.customer.customer_dashboard.get_data": "meeting_management.api.customer_get_data"
+}

@@ -1,0 +1,12 @@
+{
+ "Department": [
+  {
+   "doctype": "Department",
+   "doctype_or_field": "DocType",
+   "module": "Meeting Management",
+   "property": "field_order",
+   "property_type": "Data",
+   "value": "[\"department_name\", \"parent_department\", \"column_break_3\", \"custom_abbreviation\", \"company\", \"is_group\", \"disabled\", \"lft\", \"rgt\", \"old_parent\", \"custom_section_break_dmk3c\", \"custom_department_head\", \"custom_department_accounts\", \"custom_column_break_q3sne\", \"custom_department_user\", \"section_break_4\", \"payroll_cost_center\", \"column_break_9\", \"leave_block_list\", \"approvers\", \"shift_request_approver\", \"leave_approvers\", \"expense_approvers\", \"custom_request_for_material\", \"custom_vehicle_request\"]"
+  }
+ ]
+}

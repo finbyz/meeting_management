@@ -1,0 +1,12 @@
+{
+ "Department": [
+  {
+   "dt": "Department",
+   "fieldname": "custom_abbreviation",
+   "fieldtype": "Data",
+   "insert_after": "column_break_3",
+   "label": "Abbreviation",
+   "module": "Meeting Management"
+  }
+ ]
+}

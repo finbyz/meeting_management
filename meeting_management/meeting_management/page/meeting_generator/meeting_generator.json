@@ -1,0 +1,19 @@
+{
+ "content": null,
+ "creation": "2026-05-01 16:02:57.277815",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2026-05-01 16:02:57.277815",
+ "modified_by": "Administrator",
+ "module": "Meeting Management",
+ "name": "meeting-generator",
+ "owner": "Administrator",
+ "page_name": "meeting-generator",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Meeting Generator"
+}
