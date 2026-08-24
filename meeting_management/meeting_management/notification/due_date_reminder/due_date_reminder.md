@@ -1,4 +1,4 @@
-{% set task = frappe.get_doc("SNM Task", doc.reference_name) %}
+<p>{% set task = frappe.get_doc("SNM Task", doc.reference_name) %}</p>
 
 <div style="font-family:Segoe UI, Arial, sans-serif;background:#f4f6f9;padding:15px;">
 
@@ -20,7 +20,7 @@
         <tr>
             <td style="padding:20px;">
 
-                <p>Hello,</p>
+                <p>Dhan Nirankar Ji,</p>
 
                 <p>
                     This is a reminder that the following task is due tomorrow.
