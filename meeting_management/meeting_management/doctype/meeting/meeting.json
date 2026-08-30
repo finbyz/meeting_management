@@ -81,7 +81,7 @@
    "fieldtype": "Select",
    "in_standard_filter": 1,
    "label": "Party Type",
-   "options": "\nLead\nCustomer\nSupplier"
+   "options": "\nLead\nCustomer\nSupplier\nEmployee"
   },
   {
    "fieldname": "party",
